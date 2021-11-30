@@ -35,6 +35,7 @@ panel = cv.imread('./mqdefault.jpg')
 cv.imshow('tello control panel', panel)
 
 move_val = 50
+rotate_val = 15
 
 while True:
     key = cv.waitKey(1)
@@ -47,10 +48,10 @@ while True:
         tello.land()
     
     
-    # 업 다운
-    elif key == ord('x'):
+    # 업 다운(r/f)
+    elif key == ord('r'):
         tello.move('up',move_val)
-    elif key == ord('z'):
+    elif key == ord('f'):
         tello.move('down',move_val)
     #전후 좌우
     elif key == ord('w'):
@@ -64,8 +65,8 @@ while True:
     
     # 좌/우 회전
     elif key == ord('e'):
-        tello.rotate_clockwise(15)
+        tello.rotate_clockwise(rotate_val)
     elif key == ord('q'):
-        tello.rotate_counter_clockwise(15)
+        tello.rotate_counter_clockwise(rotate_val)
 
 pass
